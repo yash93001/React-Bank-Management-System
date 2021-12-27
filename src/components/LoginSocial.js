@@ -3,7 +3,7 @@ import { useState } from "react";
 
 //This comoponent deals with auth0 authentication and login.
 const LoginSocial = ({ users, onLogin })=>{
-    //isAuthenticated signifies wether the given email address has loggen in or not.
+    //isAuthenticated signifies whether the user associated with given email address has logged in or not.
     //User object includes information of user corresponding to the given email address.
     const { isAuthenticated ,user} = auth.useAuth0();
     const { logout } = auth.useAuth0();

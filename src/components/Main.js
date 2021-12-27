@@ -18,8 +18,8 @@ export class UnconnectedMain extends React.Component {
     constructor() {
         super();
         //currentUser consist details of logged in user
-        //authenticated signifies whether a user has loggein or not.
-        //index- index of array at which current user is stored in db.
+        //authenticated signifies whether a user has logged in or not.
+        //index- index of array at which current user object is stored in db.
         this.state = {
             currentUser: null,
             authenticated: false,
@@ -49,7 +49,7 @@ export class UnconnectedMain extends React.Component {
         )
     }
 
-    //Change currentUser Details after any update operation.
+    //Update currentUser Details after any update operation.
     updateCurrentUser(index, url, history) {
         this.props.startLoadingUsers().then(() => {
             this.setState({
@@ -60,7 +60,7 @@ export class UnconnectedMain extends React.Component {
         })
     }
 
-    //After Logout all currentUser, authenticated and index are intialized to their default values.
+    //After Logout all state variables currentUser, authenticated and index are intialized to their default values.
     LogOut(history) {
         const { logout, isAuthenticated } = this.props.auth0;
         this.setState({
@@ -68,6 +68,7 @@ export class UnconnectedMain extends React.Component {
             authenticated: false,
             index: null,
         }, () => {
+            //If usered had logged in using auth0 authenitcation.
             if (isAuthenticated) {
                 logout();
             }

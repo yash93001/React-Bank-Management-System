@@ -35,7 +35,7 @@ const Form = (props) => {
     const onSubmitHandler = (data) => {
         data.dob = (data.dob).toISOString().substr(0, 10);
         var result;
-        //udapte variable in props determine wether the component was called to act like a registration page or change detail page. 
+        //udapte variable in props determine whether the component was called to act like a registration page or change detail page. 
         //If update is true then all the form fields are populated with the current user details and on update the current user details gets updated in db and state.
         if (props.update) {
             //All the details are stacked together in result object.
@@ -44,7 +44,7 @@ const Form = (props) => {
             props.startAddingLoan(result, props.index, props.currentUser.id);
             props.onUpdateDetails(props.index, url);
         }
-        //If update is false then all form fields are blanked. On successful registration a customer id and account number is generated and new user with all these details gets added in the db.
+        //If update is false then all form fields are blank. On successful registration a customer id and account number is generated and new user with all these details gets added in the db.
         else {
             data.RegistrationDate = (data.RegistrationDate).toISOString().substr(0, 10);
             //Customer ID and Account Number is generated.
